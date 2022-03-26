@@ -1,4 +1,5 @@
 # Default ignored files
 /shelf/
 /.idea/workspace.xml
-src/br/com/andromeda/security/Token.java
+src/br/com/andromeda/security/
+
