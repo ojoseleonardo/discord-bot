@@ -1,7 +1,8 @@
 package br.com.andromeda.main;
 
-import br.com.andromeda.commands.*;;
-import br.com.andromeda.security.Token;
+import br.com.andromeda.commands.*;
+import br.com.andromeda.token.Token;
+
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Guild;
