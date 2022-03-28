@@ -15,7 +15,7 @@ public class MemberLeave extends ListenerAdapter {
 
         
 
-//        ((TextChannel) tc).sendMessage(userName + " vazou do servidor!").queue();
+        ((TextChannel) tc).sendMessage(userName + " vazou do servidor!").queue();
 
     }
 }
