@@ -1,6 +1,8 @@
-package br.com.andromeda.main;
+package br.com.andromeda.app;
 
 import br.com.andromeda.commands.*;
+import br.com.andromeda.events.MemberJoinEvent;
+import br.com.andromeda.events.MemberLeaveEvent;
 import br.com.andromeda.token.Token;
 
 import net.dv8tion.jda.api.JDA;
@@ -13,7 +15,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Dev {
+public class App {
     public static JDA jda;
     public static Map<Long, String> mapGuildName = new HashMap<>();
 
@@ -22,11 +24,20 @@ public class Dev {
         jda = JDABuilder.create(Token.getToken(),
                 EnumSet.allOf(GatewayIntent.class)).build();
 
-        jda.addEventListener(new Ping());
-        jda.addEventListener(new MemberJoin());
-        jda.addEventListener(new MemberLeave());
-        jda.addEventListener(new ClearChannel());
+        //comandos
+        jda.addEventListener(new ClearChannelCommand());
+        jda.addEventListener(new PingCommand());
         jda.addEventListener(new TestCommand());
+        jda.addEventListener(new StopBotCommand());
+
+        //eventos
+        jda.addEventListener(new MemberJoinEvent());
+        jda.addEventListener(new MemberLeaveEvent());
+
+
+
+
+
 
         //Iterando os servidores que o andrômeda está!
         for (Guild guild: jda.awaitReady().getGuilds()) {

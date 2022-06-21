@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
-public class ClearChannel extends ListenerAdapter {
+public class ClearChannelCommand extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
@@ -38,7 +38,7 @@ public class ClearChannel extends ListenerAdapter {
         }
 
         if (args[0].equals("!" + "clear".toLowerCase() + "-all")) {
-            for (int i = 0; i <= 1000; i++) {
+            for (int i = 0; i <= 10000; i++) {
                 purgeMessages(textChannel, 100);
                 try {
                     TimeUnit.SECONDS.sleep(7);
@@ -50,10 +50,9 @@ public class ClearChannel extends ListenerAdapter {
 
         }
 
-        if (args[0].equals("!" + "delete".toLowerCase())) {
-            textChannel.createCopy().complete();
-            textChannel.delete().queue();
-            }
+//            textChannel.createCopy().complete();
+//            textChannel.delete().queue();
+
 
         }
 

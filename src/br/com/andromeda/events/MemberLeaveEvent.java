@@ -1,4 +1,4 @@
-package br.com.andromeda.commands;
+package br.com.andromeda.events;
 
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberRemoveEvent;
@@ -7,15 +7,18 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class MemberLeave extends ListenerAdapter {
+import static br.com.andromeda.app.App.jda;
+
+public class MemberLeaveEvent extends ListenerAdapter {
     @Override
     public void onGuildMemberRemove(@NotNull GuildMemberRemoveEvent event) {
-        List<TextChannel> tc =  event.getGuild().getTextChannelsByName("bem-vindo", true);
         String userName = event.getUser().getAsMention();
 
-        
-
-        ((TextChannel) tc).sendMessage(userName + " vazou do servidor!").queue();
+        List<TextChannel> channels = jda.getTextChannelsByName("welcome", true);
+        for(TextChannel ch : channels)
+        {
+            ch.sendMessage(userName + " saiu do servidor!").queue();
+        }
 
     }
 }
