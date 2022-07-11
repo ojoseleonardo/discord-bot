@@ -1,4 +1,5 @@
-# Default ignored files
-/shelf/
-/.idea/workspace.xml
-/src/br/com/andromeda/token/Token.java
+.idea/
+.gradle/
+build/
+out/
+.env
