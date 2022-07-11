@@ -1,6 +1,6 @@
 package br.com.andromeda.commands;
 
-import br.com.andromeda.messages.PingMessage;
+import br.com.andromeda.messages.PingMessages;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
@@ -13,7 +13,7 @@ public class PingCommand extends ListenerAdapter {
 
 
         if (args[0].equals("!" + "ping".toLowerCase())) {
-            PingMessage msg = new PingMessage();
+            PingMessages msg = new PingMessages();
             event.getChannel().sendMessageEmbeds(msg.ping(event.getMember())).queue();
 
         }

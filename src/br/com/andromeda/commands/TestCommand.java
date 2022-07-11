@@ -12,7 +12,7 @@ public class TestCommand extends ListenerAdapter {
         String[] args = event.getMessage().getContentRaw().split(" ");
         TextChannel textChannel = (TextChannel) event.getChannel();
 
-        if (args[0].equals("!" + "testloop".toLowerCase())) {
+        if (args[0].equals("!" + "test-loop".toLowerCase())) {
             for (int i = 1; i <= Integer.parseInt(args[1]); i++) {
                 textChannel.sendMessage(i + "° loop...").queue();
             }

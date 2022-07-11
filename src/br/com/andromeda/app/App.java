@@ -1,10 +1,12 @@
 package br.com.andromeda.app;
 
-import br.com.andromeda.commands.*;
+import br.com.andromeda.commands.ClearChannelCommand;
+import br.com.andromeda.commands.PingCommand;
+import br.com.andromeda.commands.StopBotCommand;
+import br.com.andromeda.commands.TestCommand;
 import br.com.andromeda.events.MemberJoinEvent;
 import br.com.andromeda.events.MemberLeaveEvent;
 import br.com.andromeda.token.Token;
-
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Guild;
@@ -24,19 +26,15 @@ public class App {
         jda = JDABuilder.create(Token.getToken(),
                 EnumSet.allOf(GatewayIntent.class)).build();
 
-        //comandos
+        // Comandos do Andrômeda
         jda.addEventListener(new ClearChannelCommand());
         jda.addEventListener(new PingCommand());
         jda.addEventListener(new TestCommand());
         jda.addEventListener(new StopBotCommand());
 
-        //eventos
+        // Monitoramento de Eventos
         jda.addEventListener(new MemberJoinEvent());
         jda.addEventListener(new MemberLeaveEvent());
-
-
-
-
 
 
         //Iterando os servidores que o andrômeda está!

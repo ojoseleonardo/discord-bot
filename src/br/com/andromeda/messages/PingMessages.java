@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 
 
 
-public class PingMessage {
+public class PingMessages {
 
     EmbedBuilder builder = new EmbedBuilder();
 
